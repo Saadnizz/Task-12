@@ -51,17 +51,18 @@ const fetchdatabyId = (recData) => {
   });
 };
 
-
-async function displayUser() {
+async function fetchUser() {
   try {
-    console.log("Fetching data...");
-
-    const data = await fetchData();
-    const person = await fetchdatabyId(data);
-    console.log(person.name.toLowerCase());
-  } catch (err) {
-    console.log("Error: " + err);
+    let userData = await fetchData();
+    console.log(userData);
+    let personName = await fetchdatabyId(userData);
+    console.log(personName.name.toLowerCase());
+  } 
+  catch (err) {
+    console.log(err);
   }
 }
 
-displayUser();
+fetchUser();
+
+console.log("this is the end");
